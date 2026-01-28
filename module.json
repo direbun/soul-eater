@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
-    "verified": "13",
-    "manifest": "https://github.com/direbun/soul-eater/releases/latest/download/module.json",
-    "download": "https://github.com/direbun/soul-eater/releases/download/1.0.0/module.zip",
+    "verified": "13"
   },
+  "manifest": "https://github.com/direbun/soul-eater/releases/latest/download/module.json",
+  "download": "https://github.com/direbun/soul-eater/releases/download/1.0.0/module.zip",
   "flags": {
     "canUpload": true
   },
@@ -16,8 +16,6 @@
     "scripts/soul-eater.js"
   ],
   "styles": [
-    {
-      "src": "styles/soul-eater.css"
-    }
+    "styles/soul-eater.css"
   ]
 }
