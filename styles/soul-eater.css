@@ -1,0 +1,226 @@
+.dft-root { padding: 0.75rem; }
+
+/* EXP BAR */
+.dft-exp {
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.18);
+  margin-bottom: 0.75rem;
+}
+.dft-exp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.dft-exp-text { font-size: 0.95rem; opacity: 0.95; }
+.dft-exp-buttons { display: flex; gap: 0.25rem; }
+.dft-exp-bar {
+  margin-top: 0.35rem;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  overflow: hidden;
+}
+.dft-exp-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.35);
+}
+.dft-witchhunt-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.10);
+}
+
+/* HEADER */
+.dft-fruit {
+  display: grid;
+  grid-template-columns: 72px 1fr minmax(240px, 360px);
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.18);
+  margin-bottom: 0.75rem;
+}
+
+.dft-fruit-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+.dft-fruit-img-fallback {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.08);
+  font-size: 28px;
+}
+
+.dft-fruit-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.dft-fruit-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dft-label { display: flex; align-items: center; gap: 0.5rem; }
+.dft-select { min-width: 160px; }
+.dft-small { opacity: 0.85; font-size: 0.9rem; }
+
+.dft-form-help {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.15);
+  opacity: 0.95;
+  font-size: 0.9rem;
+}
+
+.dft-charges { width: 100%; }
+.dft-charge-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.dft-charge-text { font-size: 0.95rem; opacity: 0.95; }
+.dft-bonus { opacity: 0.9; margin-left: 0.35rem; }
+
+.dft-charge-buttons { display: flex; gap: 0.25rem; }
+.dft-icon-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+
+.dft-charge-bar {
+  margin-top: 0.35rem;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  overflow: hidden;
+}
+.dft-charge-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.35);
+}
+
+.dft-rest-note {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.dft-dropzone {
+  border: 2px dashed rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin: 0.75rem 0 1rem;
+}
+.dft-dropzone-inner {
+  text-align: center;
+  padding: 0.75rem;
+  opacity: 0.85;
+}
+
+.dft-empty { opacity: 0.85; margin: 0.5rem 0 0; }
+.dft-group-title { margin: 0.75rem 0 0.25rem; }
+
+.dft-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dft-item {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.15);
+}
+
+.dft-item-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dft-item-name { cursor: pointer; }
+.dft-cost { opacity: 0.85; margin-left: 0.35rem; font-size: 0.9rem; }
+
+.dft-item-actions { display: flex; gap: 0.25rem; }
+.dft-item-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+
+.dft-dot { opacity: 0.65; margin: 0 0.35rem; }
+
+.dft-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  font-size: 0.85rem;
+}
+
+/* Death Scythe "awakened" styling tweak */
+.dft-death-scythe .dft-fruit,
+.dft-death-scythe .dft-exp {
+  background: rgba(0,0,0,0.30);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset;
+}
+.dft-death-scythe .dft-charge-fill,
+.dft-death-scythe .dft-exp-fill {
+  background: rgba(255,255,255,0.50);
+}
+
+/* Tidy */
+.tidy5e-sheet .dft-fruit {
+  grid-template-columns: 72px 1fr;
+  grid-template-areas:
+    "left mid"
+    "right right";
+  align-items: start;
+}
+.tidy5e-sheet .dft-fruit-left { grid-area: left; }
+.tidy5e-sheet .dft-fruit-mid  { grid-area: mid; min-width: 0; }
+.tidy5e-sheet .dft-fruit-right {
+  grid-area: right;
+  min-width: 0;
+  width: 100%;
+}
+.tidy5e-sheet .dft-charges { width: 100%; max-width: 100%; }
+.tidy5e-sheet .dft-charge-bar { width: 100%; }
+.tidy5e-sheet .dft-charge-top { flex-wrap: wrap; gap: 0.5rem; }
+.tidy5e-sheet .dft-charge-text { flex: 1 1 220px; min-width: 0; }
+.tidy5e-sheet .dft-charge-buttons { flex: 0 0 auto; justify-content: flex-end; margin-left: auto; }

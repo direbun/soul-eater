@@ -1,0 +1,243 @@
+<section class="dft-root {{#if isDeathScythe}}dft-death-scythe{{/if}}">
+  <div class="dft-exp">
+    <div class="dft-exp-top">
+      <div class="dft-exp-text">
+        Weapon Level: <b>{{weaponLevel}}</b> / <b>20</b>
+        {{#if isDeathScythe}}
+          <span class="dft-badge">Death Scythe</span>
+        {{/if}}
+      </div>
+
+      {{#if isGM}}
+      <div class="dft-exp-buttons">
+        <button type="button" class="dft-icon-btn" data-action="level-minus" title="-1 level">
+          <i class="fa-solid fa-minus"></i>
+        </button>
+        <button type="button" class="dft-icon-btn" data-action="level-plus" title="+1 level">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="dft-exp-bar" role="progressbar" aria-valuenow="{{weaponLevel}}" aria-valuemin="0" aria-valuemax="20">
+      <div class="dft-exp-fill" style="width: {{levelPct}}%;"></div>
+    </div>
+  </div>
+
+  <header class="dft-fruit" data-dft-drop="weapon" title="GM: drop an Image Journal Page here to set the weapon image/name">
+    <div class="dft-fruit-left">
+      {{#if weaponImg}}
+        <img class="dft-fruit-img" src="{{weaponImg}}" alt="{{weaponName}}" />
+      {{else}}
+        <div class="dft-fruit-img-fallback">
+          <i class="fa-solid fa-skull"></i>
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="dft-fruit-mid">
+      <div class="dft-fruit-name">{{weaponName}}</div>
+
+      <div class="dft-fruit-meta">
+        <label class="dft-label">
+          Path
+          <select class="dft-select" data-action="set-path">
+            <option value="vanguard" {{#if (eq path "vanguard")}}selected{{/if}}>Vanguard</option>
+            <option value="balanced" {{#if (eq path "balanced")}}selected{{/if}}>Balanced</option>
+            <option value="savant" {{#if (eq path "savant")}}selected{{/if}}>Savant</option>
+          </select>
+        </label>
+
+        <label class="dft-label">
+          Weapon Form
+          <select class="dft-select" data-action="set-form">
+            <option value="polearm" {{#if (eq weaponForm "polearm")}}selected{{/if}}>Polearm / Scythe</option>
+            <option value="sword" {{#if (eq weaponForm "sword")}}selected{{/if}}>Sword / Blade</option>
+            <option value="heavy" {{#if (eq weaponForm "heavy")}}selected{{/if}}>Heavy Weapon</option>
+            <option value="dual" {{#if (eq weaponForm "dual")}}selected{{/if}}>Light / Dual Weapons</option>
+            <option value="fist" {{#if (eq weaponForm "fist")}}selected{{/if}}>Fist / Gauntlet / Brawler</option>
+            <option value="flexible" {{#if (eq weaponForm "flexible")}}selected{{/if}}>Flexible</option>
+            <option value="ranged" {{#if (eq weaponForm "ranged")}}selected{{/if}}>Ranged</option>
+            <option value="shield" {{#if (eq weaponForm "shield")}}selected{{/if}}>Shield / Guard Weapon</option>
+            <option value="hybrid" {{#if (eq weaponForm "hybrid")}}selected{{/if}}>Hybrid / Transforming</option>
+          </select>
+        </label>
+
+        <label class="dft-label">
+          Resonance Stat
+          <select class="dft-select" data-action="set-resonance-stat">
+            <option value="str" {{#if (eq resonanceStat "str")}}selected{{/if}}>Strength</option>
+            <option value="dex" {{#if (eq resonanceStat "dex")}}selected{{/if}}>Dexterity</option>
+            <option value="con" {{#if (eq resonanceStat "con")}}selected{{/if}}>Constitution</option>
+            <option value="wis" {{#if (eq resonanceStat "wis")}}selected{{/if}}>Wisdom</option>
+            <option value="int" {{#if (eq resonanceStat "int")}}selected{{/if}}>Intelligence</option>
+            <option value="cha" {{#if (eq resonanceStat "cha")}}selected{{/if}}>Charisma</option>
+          </select>
+        </label>
+
+        <div class="dft-small">
+          Save DC: <b>{{saveDC}}</b> • Attack: <b>{{attackModSigned}}</b>
+          <span class="dft-dot">•</span>
+          Highest Technique Level: <b>{{highestTechniqueLevel}}</b>
+        </div>
+
+        <div class="dft-form-help">
+          <div><b>Does:</b> {{formDoes}}</div>
+          <div><b>Themes:</b> {{formThemes}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dft-fruit-right">
+      <div class="dft-charges">
+        <div class="dft-charge-top">
+          <div class="dft-charge-text">
+            Resonance: <b>{{resCurrent}}</b> / <b>{{resMax}}</b>
+            {{#if bonusResonance}}
+              <span class="dft-bonus">(Bonus: {{bonusResonance}})</span>
+            {{/if}}
+          </div>
+
+          <div class="dft-charge-buttons">
+            <button type="button" class="dft-icon-btn" data-action="res-minus" title="-1 resonance">
+              <i class="fa-solid fa-minus"></i>
+            </button>
+            <button type="button" class="dft-icon-btn" data-action="res-plus" title="+1 resonance">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <button type="button" class="dft-icon-btn" data-action="res-bonus" title="Set bonus resonance">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="dft-charge-bar" role="progressbar" aria-valuenow="{{resCurrent}}" aria-valuemin="0" aria-valuemax="{{resMax}}">
+          <div class="dft-charge-fill" style="width: {{resPct}}%;"></div>
+        </div>
+
+        <div class="dft-rest-note">
+          <b>Rest:</b> Long Rest restores all resonance.
+          <span class="dft-dot">•</span>
+          Short Rest restores: Vanguard (all), Balanced (half max), Savant (PB + stat mod, min 2).
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="dft-dropzone" data-dft-drop="items">
+    <div class="dft-dropzone-inner">Drop Items Here (techniques / attacks / features)</div>
+  </div>
+
+  {{#unless hasAny}}
+    <p class="dft-empty">Nothing added yet. Drop an Item into the area above.</p>
+  {{/unless}}
+
+  {{#if techniques.length}}
+  <h4 class="dft-group-title">Techniques</h4>
+  <ol class="dft-list">
+    {{#each techniques}}
+    <li class="dft-item" data-item-uuid="{{uuid}}">
+      <img class="dft-item-img" src="{{img}}" alt="{{name}}" data-action="open"/>
+      <div class="dft-item-name" data-action="open">
+        {{name}}
+        <span class="dft-cost">({{resCost}} res)</span>
+      </div>
+
+      <div class="dft-item-actions">
+        <button class="dft-item-btn" type="button" data-action="use" title="Use (spend resonance)">
+          <i class="fa-solid fa-bolt"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="edit" title="Edit cost / boost">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="remove" title="Remove from Soul Weapon">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </li>
+    {{/each}}
+  </ol>
+  {{/if}}
+
+  {{#if attacks.length}}
+  <h4 class="dft-group-title">Attacks</h4>
+  <ol class="dft-list">
+    {{#each attacks}}
+    <li class="dft-item" data-item-uuid="{{uuid}}">
+      <img class="dft-item-img" src="{{img}}" alt="{{name}}" data-action="open"/>
+      <div class="dft-item-name" data-action="open">
+        {{name}}
+        <span class="dft-cost">({{resCost}} res)</span>
+      </div>
+
+      <div class="dft-item-actions">
+        <button class="dft-item-btn" type="button" data-action="use" title="Use (spend resonance)">
+          <i class="fa-solid fa-bolt"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="edit" title="Edit cost">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="remove" title="Remove from Soul Weapon">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </li>
+    {{/each}}
+  </ol>
+  {{/if}}
+
+  {{#if features.length}}
+  <h4 class="dft-group-title">Features</h4>
+  <ol class="dft-list">
+    {{#each features}}
+    <li class="dft-item" data-item-uuid="{{uuid}}">
+      <img class="dft-item-img" src="{{img}}" alt="{{name}}" data-action="open"/>
+      <div class="dft-item-name" data-action="open">
+        {{name}}
+        <span class="dft-cost">({{resCost}} res)</span>
+      </div>
+
+      <div class="dft-item-actions">
+        <button class="dft-item-btn" type="button" data-action="use" title="Use (spend resonance)">
+          <i class="fa-solid fa-bolt"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="edit" title="Edit cost">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="remove" title="Remove from Soul Weapon">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </li>
+    {{/each}}
+  </ol>
+  {{/if}}
+
+  {{#if other.length}}
+  <h4 class="dft-group-title">Other</h4>
+  <ol class="dft-list">
+    {{#each other}}
+    <li class="dft-item" data-item-uuid="{{uuid}}">
+      <img class="dft-item-img" src="{{img}}" alt="{{name}}" data-action="open"/>
+      <div class="dft-item-name" data-action="open">
+        {{name}}
+        <span class="dft-cost">({{resCost}} res)</span>
+      </div>
+
+      <div class="dft-item-actions">
+        <button class="dft-item-btn" type="button" data-action="use" title="Use (spend resonance)">
+          <i class="fa-solid fa-bolt"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="edit" title="Edit cost">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="dft-item-btn" type="button" data-action="remove" title="Remove from Soul Weapon">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </li>
+    {{/each}}
+  </ol>
+  {{/if}}
+</section>
